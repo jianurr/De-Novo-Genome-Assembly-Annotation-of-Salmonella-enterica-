@@ -1,0 +1,15 @@
+# QUAST Assembly Results
+Total contigs: 421
+Contigs ≥ 1000 bp: 214
+Largest contig: 151,779 bp
+Total assembly size: 4,597,936 bp
+GC content: 52.16%
+N50: 46,503 bp
+L50: 30
+
+# Prokka Annotation Results
+Protein-coding genes (CDS): 4,256
+tRNA genes: 93
+rRNA genes: 4
+tmRNA: 1
+Repeat regions: 2
