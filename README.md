@@ -1,99 +1,97 @@
-Genome Assembly and Annotation of Salmonella enterica
+# Genome Assembly and Annotation of Salmonella enterica
 
-This repository contains the complete workflow I followed to assemble and annotate the genome of Salmonella enterica using Illumina paired-end sequencing data from the NCBI SRA (accession number: SRR2584863). The goal of this project was to understand how raw sequencing reads are processed through a standard bacterial genome assembly and annotation pipeline. All major output folders from SPAdes, QUAST, and Prokka are included so that the entire workflow can be reviewed or reproduced.
+This repository contains the complete workflow I followed to assemble and annotate the genome of Salmonella enterica using Illumina paired-end sequencing data from the NCBI SRA (accession number: SRR2584863). The goal of this project was to understand the full bacterial genome analysis process, from raw sequencing reads to an annotated genome. All major output folders from SPAdes, QUAST, and Prokka are included.
 
-1. Project Summary
+---------------------------------------------------------------------
 
-The analysis begins with raw paired-end sequencing reads, which are assembled using SPAdes to generate contigs.
-The assembly is then evaluated using QUAST, focusing on metrics such as N50, L50, GC content, and contig length distribution.
-Finally, the assembled contigs are annotated using Prokka, which identifies coding sequences, RNA genes, and other genomic features.
+## Project Summary
 
-The repository is organized with separate directories for each tool’s output to keep the workflow clear and easy to navigate.
+This project follows a standard microbial genome analysis workflow. Raw Illumina reads were assembled into contigs using SPAdes, the assembly quality was assessed using QUAST, and genome annotation was performed using Prokka. The repository is organized so that anyone can follow the workflow or inspect each step's results.
 
-2. Dataset Information
+---------------------------------------------------------------------
 
-Organism: Salmonella enterica
+## Dataset Information
 
-SRA Accession: SRR2584863
+Organism: Salmonella enterica  
+SRA Accession: SRR2584863  
+Platform: Illumina  
+Data Type: Paired-end whole-genome sequencing  
 
-Platform: Illumina
+FASTQ files are not included due to size limitations, but all analysis was performed using this dataset.
 
-Data Type: Paired-end whole-genome reads
+---------------------------------------------------------------------
 
-The FASTQ files are not included due to size, but all analyses were performed using this dataset.
+## Tools Used
 
-3. Tools Used
+SPAdes – de novo genome assembly  
+QUAST – assembly quality evaluation  
+Prokka – genome annotation  
 
-SPAdes – de novo genome assembly
+All tools were installed and executed through Conda environments.
 
-QUAST – assembly quality assessment
+---------------------------------------------------------------------
 
-Prokka – genome annotation
+## Workflow Overview
 
-All tools were installed and run through Conda environments to keep the workflow clean and reproducible.
+Raw FASTQ reads  
+→ Genome assembly using SPAdes  
+→ Assembly quality assessment using QUAST  
+→ Genome annotation using Prokka  
 
-4. Workflow Overview
+Each stage produced output files that are stored in separate directories.
 
-The workflow followed in this project:
+---------------------------------------------------------------------
 
-Raw FASTQ files → Genome Assembly (SPAdes) → Assembly Evaluation (QUAST) → Genome Annotation (Prokka)
+## Results Summary
 
-Each step produces output files, all of which are stored in dedicated folders inside the repository.
+QUAST Assembly Results:  
+Total contigs: 421  
+Contigs ≥ 1000 bp: 214  
+Largest contig: 151,779 bp  
+Assembly size: 4,597,936 bp  
+GC content: 52.16%  
+N50: 46,503 bp  
+L50: 30  
 
-5. Results Summary
-5.1 QUAST Assembly Results
+Prokka Annotation Results:  
+Protein-coding genes (CDS): 4,256  
+tRNA genes: 93  
+rRNA genes: 4  
+tmRNA: 1  
+Repeat regions: 2  
 
-Total contigs: 421
+These results indicate a complete and good-quality bacterial genome assembly and annotation.
 
-Contigs ≥ 1000 bp: 214
+---------------------------------------------------------------------
 
-Largest contig: 151,779 bp
+## Repository Structure
 
-Assembly size: 4,597,936 bp
+README.md  
+spades_output/    (SPAdes assembled contigs)  
+quast_res/        (QUAST quality assessment reports)  
+prokka_output/    (Prokka annotation files)  
 
-GC content: 52.16%
+---------------------------------------------------------------------
 
-N50: 46,503 bp
+## Reproducibility
 
-L50: 30
+This workflow can be reproduced by installing SPAdes, QUAST, Prokka, and SRA Toolkit and running the steps in the same order. The pipeline runs smoothly on Linux-based systems such as Ubuntu or WSL.
 
-5.2 Prokka Annotation Results
+---------------------------------------------------------------------
 
-Protein-coding genes (CDS): 4,256
+## Purpose of This Work
 
-tRNA genes: 93
+This project was carried out for hands-on learning in bacterial genome assembly and annotation. The workflow and results in this repository may be helpful for students or researchers learning microbial genomics.
 
-rRNA genes: 4
+---------------------------------------------------------------------
 
-tmRNA: 1
+## Author
 
-Repeat regions: 2
+Khandakar Jianur Islam  
+Bioinformatics | Genomics | NGS Analysis | Linux
 
-These results reflect a complete and good-quality bacterial genome assembly and annotation.
+---------------------------------------------------------------------
 
-6. Repository Structure
-README.md
-spades_output/       → SPAdes assembled contigs
-quast_res/           → QUAST assembly quality reports
-prokka_output/       → Prokka genome annotation files
-
-
-Each folder contains the unmodified outputs generated by their respective tools.
-
-7. Reproducibility
-
-Anyone wishing to reproduce this workflow can do so by installing SPAdes, QUAST, Prokka, and the SRA Toolkit, and following the same sequence of steps.
-The pipeline runs smoothly on Linux-based systems, including Ubuntu and WSL.
-
-8. Purpose of This Work
-
-This project was carried out for hands-on practice in microbial genome assembly and annotation. The workflow and results included here may be helpful for students or researchers learning how to perform bacterial genome analysis from start to finish.
-
-9. Author
-
-Khandakar Jianur Islam
-Bioinformatics • Genomics • NGS Analysis • Linux
-
-10. License
+## License
 
 This project is released under the MIT License.
