@@ -1,0 +1,29 @@
+# Download FASTQ files from SRA
+prefetch SRR2584863
+fasterq-dump --split-files SRR2584863 -e 8
+
+# Genome assembly using SPAdes
+spades.py \
+  --careful \
+  -1 SRR2584863_1.fastq \
+  -2 SRR2584863_2.fastq \
+  -o spades_output \
+  -t 8 \
+  -m 16
+
+# Evaluate assembly with QUAST
+quast spades_output/contigs.fasta -o quast_res -t 8
+
+# Rename contigs (optional but recommended)
+cp spades_output/contigs.fasta spades_output/contigs_renamed.fasta
+
+# Genome annotation using Prokka
+prokka \
+  --outdir prokka_output \
+  --prefix salmonella \
+  --cpus 8 \
+  --kingdom Bacteria \
+  --genus Salmonella \
+  --species enterica \
+  --usegenus \
+  spades_output/contigs_renamed.fasta
